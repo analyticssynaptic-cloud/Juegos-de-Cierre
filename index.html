@@ -733,8 +733,8 @@ img{max-width:100%;display:block}
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-7"/></svg>
           </div>
           <h4>¿Quién Gana el Bono?</h4>
-          <p>25 preguntas en 3 niveles: Fácil 10 pts · Intermedio 20 pts · Experto 30 pts. Tiempo por pregunta.</p>
-          <div class="mp-pts">450 PTS · 15 min</div>
+          <p>15 preguntas en 3 niveles: Fácil 10 pts · Intermedio 20 pts · Experto 30 pts. Tiempo por pregunta.</p>
+          <div class="mp-pts">300 PTS · 10 min</div>
         </div>
         <div class="mp-card teal">
           <div class="mp-num">JUEGO 2</div>
@@ -743,7 +743,7 @@ img{max-width:100%;display:block}
           </div>
           <h4>Laberinto Contrarreloj</h4>
           <p>Encuentra la salida en el menor tiempo posible. Cada segundo cuenta. Usa flechas, WASD o el D-pad.</p>
-          <div class="mp-pts">200 PTS · 2 min</div>
+          <div class="mp-pts">200 PTS · 3 min</div>
         </div>
         <div class="mp-card">
           <div class="mp-num">JUEGO 3</div>
@@ -970,89 +970,118 @@ const WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbxgX80DYO9ts5VRnFe1P
    DATOS · QUIZ
 ================================================================ */
 const QUIZ = [
+  /* ===== Fáciles (5 · 10 pts · 30s) ===== */
   {n:1,  lvl:1, pts:10, t:30, q:'¿Qué órgano del cuerpo se ve afectado por la fatiga visual?',
     o:['Los ojos','Las manos','El estómago','Los pies'], a:0,
     fb:'La fatiga visual afecta directamente los ojos al sobre-exigir los músculos oculares.'},
   {n:2,  lvl:1, pts:10, t:30, q:'¿Qué actividad puede causar fatiga visual con mayor frecuencia?',
     o:['Uso prolongado de pantallas','Caminar al aire libre','Dormir','Hacer ejercicio'], a:0,
     fb:'El uso prolongado de pantallas es la causa más común de fatiga visual moderna.'},
-  {n:3,  lvl:1, pts:10, t:30, q:'¿Cuál es una recomendación básica para el cuidado de la vista?',
-    o:['Mantener buena iluminación','Trabajar en la oscuridad','Frotarse los ojos','Mirar al sol'], a:0,
-    fb:'Una buena iluminación reduce el esfuerzo ocular durante las tareas.'},
-  {n:4,  lvl:1, pts:10, t:30, q:'La sigla "SST" corresponde a:',
-    o:['Seguridad y Salud en el Trabajo','Servicio Social Técnico','Sistema de Salud Total','Sociedad de Seguridad Total'], a:0,
-    fb:'SST = Seguridad y Salud en el Trabajo, marco normativo en Colombia.'},
-  {n:5,  lvl:1, pts:10, t:30, q:'¿Por dónde debe caminar un peatón en zona urbana?',
+  {n:3,  lvl:1, pts:10, t:30, q:'¿Por dónde debe caminar un peatón en zona urbana?',
     o:['Por la acera','Por el centro de la calle','Por el carril de bicicletas','Por la berma de la autopista'], a:0,
     fb:'La acera es el espacio diseñado y seguro para el peatón.'},
-  {n:6,  lvl:1, pts:10, t:30, q:'¿Qué representa una sensación de pesadez o ardor ocular?',
-    o:['Fatiga visual','Migraña','Estrés laboral','Insomnio'], a:0,
-    fb:'Es uno de los síntomas más característicos de la fatiga visual.'},
-  {n:7,  lvl:1, pts:10, t:30, q:'¿Cuál es un síntoma común de fatiga visual?',
-    o:['Visión borrosa','Tos','Dolor de estómago','Fiebre'], a:0,
-    fb:'La visión borrosa indica sobre-esfuerzo del cristalino y los músculos oculares.'},
-  {n:8,  lvl:1, pts:10, t:30, q:'¿Cada cuánto tiempo recomienda la regla 20-20-20 descansar la vista?',
+  {n:4,  lvl:1, pts:10, t:30, q:'¿Cada cuánto tiempo recomienda la regla 20-20-20 descansar la vista?',
     o:['Cada 20 minutos','Cada hora','Cada 10 minutos','Cada 2 horas'], a:0,
     fb:'Cada 20 minutos: aleja la vista 6 m (20 pies) durante 20 s.'},
-  {n:9,  lvl:1, pts:10, t:30, q:'¿A qué distancia se debe mirar durante la regla 20-20-20?',
-    o:['6 metros (20 pies)','1 metro','10 metros','50 centímetros'], a:0,
-    fb:'A 6 m (20 pies) los músculos oculares relajan el enfoque cercano.'},
-  {n:10, lvl:1, pts:10, t:30, q:'¿Cuánto tiempo debe durar el descanso visual de la regla 20-20-20?',
-    o:['20 segundos','1 minuto','5 segundos','2 minutos'], a:0,
-    fb:'20 segundos son suficientes para reducir la fatiga ocular acumulada.'},
+  {n:5,  lvl:1, pts:10, t:30, q:'La sigla "SST" corresponde a:',
+    o:['Seguridad y Salud en el Trabajo','Servicio Social Técnico','Sistema de Salud Total','Sociedad de Seguridad Total'], a:0,
+    fb:'SST = Seguridad y Salud en el Trabajo, marco normativo en Colombia.'},
 
-  {n:11, lvl:2, pts:20, t:40, q:'¿Cuál es una causa común de fatiga visual en oficina?',
-    o:['Brillo inadecuado de la pantalla','Beber agua','Caminar','Ver televisión a distancia'], a:0,
-    fb:'El brillo mal calibrado obliga al ojo a esforzarse más.'},
-  {n:12, lvl:2, pts:20, t:40, q:'¿Qué postura se recomienda al usar el computador?',
+  /* ===== Intermedias (5 · 20 pts · 40s) ===== */
+  {n:6,  lvl:2, pts:20, t:40, q:'¿Qué postura se recomienda al usar el computador?',
     o:['Pantalla a la altura de los ojos','Pantalla muy por encima','Pantalla a la altura del piso','De pie sin apoyo'], a:0,
     fb:'A la altura de los ojos para mantener cuello, espalda y enfoque relajados.'},
-  {n:13, lvl:2, pts:20, t:40, q:'¿Quién debe liderar las acciones del PESV en la empresa?',
-    o:['El responsable SST','El gerente comercial','El cliente externo','El contratista de aseo'], a:0,
-    fb:'El responsable SST coordina y hace seguimiento al PESV.'},
-  {n:14, lvl:2, pts:20, t:40, q:'¿Cuál es una conducta segura para un peatón en la noche?',
-    o:['Cruzar por sitios iluminados','Cruzar por zonas oscuras','Caminar por el centro de la vía','Usar audífonos a alto volumen'], a:0,
-    fb:'La iluminación aumenta la visibilidad peatón-conductor y previene siniestros.'},
-  {n:15, lvl:2, pts:20, t:40, q:'¿Qué hacer al sentir fatiga visual durante la jornada laboral?',
+  {n:7,  lvl:2, pts:20, t:40, q:'¿Qué hacer al sentir fatiga visual durante la jornada laboral?',
     o:['Tomar pausas activas visuales','Aumentar el brillo al máximo','Trabajar más horas seguidas','Ignorar el síntoma'], a:0,
     fb:'Las pausas activas visuales (regla 20-20-20) recuperan al ojo de inmediato.'},
-  {n:16, lvl:2, pts:20, t:40, q:'¿Qué debe evitarse al cruzar una vía pública?',
-    o:['Distracciones con celular o audífonos','Mirar ambos lados','Caminar por la acera','Cruzar por cebras'], a:0,
-    fb:'El celular y los audífonos quitan atención y oído al peatón.'},
-  {n:17, lvl:2, pts:20, t:40, q:'Antes de cruzar una calle, el peatón debe:',
-    o:['Hacer contacto visual con el conductor','Correr','Usar el celular','Escuchar música'], a:0,
-    fb:'El contacto visual asegura que el conductor advirtió la presencia del peatón.'},
-  {n:18, lvl:2, pts:20, t:40, q:'¿Qué color de ropa es recomendable usar en la noche?',
+  {n:8,  lvl:2, pts:20, t:40, q:'¿Qué color de ropa es recomendable usar en la noche?',
     o:['Clara o reflectiva','Negra','Azul oscuro','Marrón'], a:0,
     fb:'Las prendas claras o con cintas reflectivas multiplican la visibilidad.'},
-  {n:19, lvl:2, pts:20, t:40, q:'¿Quiénes son considerados peatones dentro del PESV?',
-    o:['Todos los colaboradores que se desplazan a pie','Solo visitantes','Solo conductores','Personal administrativo'], a:0,
-    fb:'Cualquier persona en desplazamiento a pie es peatón según el PESV.'},
-  {n:20, lvl:2, pts:20, t:40, q:'¿Qué debe hacerse si se identifica un riesgo vial?',
-    o:['Reportarlo al responsable SST','Ignorarlo','Publicarlo en redes sociales','Esperar que otro lo reporte'], a:0,
-    fb:'Reportar al SST permite intervenir el riesgo antes del incidente.'},
+  {n:9,  lvl:2, pts:20, t:40, q:'Para mantener un control de volumen adecuado, ¿cuál es el límite recomendado al usar audífonos?',
+    o:['Por debajo del 60% de la capacidad máxima','Por debajo del 50% de la capacidad máxima','Siempre al 80% de la capacidad máxima para mayor claridad','El volumen que permita escuchar el ruido exterior'], a:0,
+    fb:'La recomendación es mantener el volumen por debajo del 60% de la capacidad máxima para prevenir daño auditivo.'},
+  {n:10, lvl:2, pts:20, t:40, q:'¿Con qué frecuencia se recomienda realizar un chequeo de audiometría preventiva?',
+    o:['Una vez al año, de forma preventiva para monitorear la salud auditiva','Solamente cuando ya exista una pérdida total de la audición','Únicamente cuando se empiece a sentir un zumbido constante en el oído','Cada 10 años, después de cumplir 50 años de edad'], a:0,
+    fb:'La audiometría preventiva debe realizarse mínimo una vez al año para detectar cambios auditivos a tiempo.'},
 
-  {n:21, lvl:3, pts:30, t:60, q:'¿Qué busca reducir el PESV?',
+  /* ===== Expertas (5 · 30 pts · 60s) ===== */
+  {n:11, lvl:3, pts:30, t:60, q:'¿Qué busca reducir el PESV?',
     o:['La siniestralidad vial','El ausentismo','Las reuniones','El teletrabajo'], a:0,
     fb:'PESV = Plan Estratégico de Seguridad Vial, reduce siniestros y víctimas.'},
-  {n:22, lvl:3, pts:30, t:60, q:'Según el PESV de Par Servicios, ¿qué medio está prohibido para actividades laborales?',
+  {n:12, lvl:3, pts:30, t:60, q:'Según el PESV de Par Servicios, ¿qué medio está prohibido para actividades laborales?',
     o:['Motocicletas','Bus empresarial','Taxi autorizado','Vehículo corporativo'], a:0,
     fb:'Las motocicletas están restringidas en el PESV por su alto riesgo.'},
-  {n:23, lvl:3, pts:30, t:60, q:'¿Cuál NO es una recomendación para prevenir la fatiga visual?',
+  {n:13, lvl:3, pts:30, t:60, q:'¿Cuál NO es una recomendación para prevenir la fatiga visual?',
     o:['Mirar la pantalla continuamente durante horas','Mantener brillo adecuado','Hidratarse','Descansar los ojos'], a:0,
     fb:'Mantenerse horas sin pausas es justamente lo que provoca fatiga visual.'},
-  {n:24, lvl:3, pts:30, t:60, q:'¿Qué vitamina ayuda al cuidado visual según las recomendaciones?',
+  {n:14, lvl:3, pts:30, t:60, q:'¿Qué vitamina ayuda al cuidado visual según las recomendaciones?',
     o:['Vitamina A','Vitamina C','Vitamina D','Vitamina K'], a:0,
     fb:'La vitamina A es clave para la retina y la visión nocturna.'},
-  {n:25, lvl:3, pts:30, t:60, q:'Completa la frase del PESV: "La seguridad vial comienza con..."',
+  {n:15, lvl:3, pts:30, t:60, q:'Completa la frase del PESV: "La seguridad vial comienza con..."',
     o:['La decisión de actuar con responsabilidad','Comprar un vehículo nuevo','Instalar más semáforos','Contratar más conductores'], a:0,
     fb:'La actitud responsable de cada persona es la base del PESV.'}
 ];
 
 /* ================================================================
+   BANCO DE RESERVA · Preguntas usadas por el comodín CAMBIO
+   ----------------------------------------------------------------
+   Cuando el usuario activa el comodín, se reemplaza la pregunta
+   actual por una del mismo nivel (lvl) tomada de este banco.
+================================================================ */
+const QUIZ_RESERVE = [
+  /* Fáciles */
+  {lvl:1, pts:10, t:30, q:'¿Cuál es una recomendación básica para el cuidado de la vista?',
+    o:['Mantener buena iluminación','Trabajar en la oscuridad','Frotarse los ojos','Mirar al sol'], a:0,
+    fb:'Una buena iluminación reduce el esfuerzo ocular durante las tareas.'},
+  {lvl:1, pts:10, t:30, q:'¿Qué representa una sensación de pesadez o ardor ocular?',
+    o:['Fatiga visual','Migraña','Estrés laboral','Insomnio'], a:0,
+    fb:'Es uno de los síntomas más característicos de la fatiga visual.'},
+  {lvl:1, pts:10, t:30, q:'¿Cuál es un síntoma común de fatiga visual?',
+    o:['Visión borrosa','Tos','Dolor de estómago','Fiebre'], a:0,
+    fb:'La visión borrosa indica sobre-esfuerzo del cristalino y los músculos oculares.'},
+  {lvl:1, pts:10, t:30, q:'¿A qué distancia se debe mirar durante la regla 20-20-20?',
+    o:['6 metros (20 pies)','1 metro','10 metros','50 centímetros'], a:0,
+    fb:'A 6 m (20 pies) los músculos oculares relajan el enfoque cercano.'},
+  {lvl:1, pts:10, t:30, q:'¿Cuánto tiempo debe durar el descanso visual de la regla 20-20-20?',
+    o:['20 segundos','1 minuto','5 segundos','2 minutos'], a:0,
+    fb:'20 segundos son suficientes para reducir la fatiga ocular acumulada.'},
+
+  /* Intermedias */
+  {lvl:2, pts:20, t:40, q:'¿Cuál es una causa común de fatiga visual en oficina?',
+    o:['Brillo inadecuado de la pantalla','Beber agua','Caminar','Ver televisión a distancia'], a:0,
+    fb:'El brillo mal calibrado obliga al ojo a esforzarse más.'},
+  {lvl:2, pts:20, t:40, q:'¿Quién debe liderar las acciones del PESV en la empresa?',
+    o:['El responsable SST','El gerente comercial','El cliente externo','El contratista de aseo'], a:0,
+    fb:'El responsable SST coordina y hace seguimiento al PESV.'},
+  {lvl:2, pts:20, t:40, q:'¿Cuál es una conducta segura para un peatón en la noche?',
+    o:['Cruzar por sitios iluminados','Cruzar por zonas oscuras','Caminar por el centro de la vía','Usar audífonos a alto volumen'], a:0,
+    fb:'La iluminación aumenta la visibilidad peatón-conductor y previene siniestros.'},
+  {lvl:2, pts:20, t:40, q:'¿Qué debe evitarse al cruzar una vía pública?',
+    o:['Distracciones con celular o audífonos','Mirar ambos lados','Caminar por la acera','Cruzar por cebras'], a:0,
+    fb:'El celular y los audífonos quitan atención y oído al peatón.'},
+  {lvl:2, pts:20, t:40, q:'Antes de cruzar una calle, el peatón debe:',
+    o:['Hacer contacto visual con el conductor','Correr','Usar el celular','Escuchar música'], a:0,
+    fb:'El contacto visual asegura que el conductor advirtió la presencia del peatón.'},
+  {lvl:2, pts:20, t:40, q:'¿Quiénes son considerados peatones dentro del PESV?',
+    o:['Todos los colaboradores que se desplazan a pie','Solo visitantes','Solo conductores','Personal administrativo'], a:0,
+    fb:'Cualquier persona en desplazamiento a pie es peatón según el PESV.'},
+  {lvl:2, pts:20, t:40, q:'¿Qué debe hacerse si se identifica un riesgo vial?',
+    o:['Reportarlo al responsable SST','Ignorarlo','Publicarlo en redes sociales','Esperar que otro lo reporte'], a:0,
+    fb:'Reportar al SST permite intervenir el riesgo antes del incidente.'},
+
+  /* Expertas */
+  {lvl:3, pts:30, t:60, q:'En el PESV, ¿qué se debe revisar antes de iniciar un desplazamiento laboral?',
+    o:['Las condiciones del vehículo y la ruta','Solo el combustible','Solo el clima','Nada en particular'], a:0,
+    fb:'La inspección preoperacional incluye vehículo, ruta, clima y condiciones del conductor.'},
+  {lvl:3, pts:30, t:60, q:'¿Qué documento certifica el cumplimiento del SG-SST en una empresa colombiana?',
+    o:['Plan anual y resultados de auditoría','Una carta firmada por el gerente','El contrato laboral','El reglamento interno'], a:0,
+    fb:'El SG-SST se acredita con el plan anual, indicadores y auditorías documentadas.'}
+];
+
+/* ================================================================
    DATOS · LABERINTO
 ================================================================ */
-const MAZE_TIME_LIMIT = 120;   // segundos
+const MAZE_TIME_LIMIT = 180;   // segundos (3 minutos)
 const MAZE_SIZE       = 13;    // 13x13 celdas (impar)
 const MAZE_MAX_PTS    = 200;
 
@@ -1060,10 +1089,10 @@ const MAZE_MAX_PTS    = 200;
    DATOS · AHORCADO
 ================================================================ */
 const HANG_WORDS = [
-  {w:'PEATONES',  c:'Actor vial que se desplaza a pie por la vía pública. Tiene prioridad en cebras y cruces.',         cat:'PESV'},
+  {w:'PEATON',    c:'Actor vial que se desplaza a pie por la vía pública. Tiene prioridad en cebras y cruces.',         cat:'PESV'},
   {w:'CONDUCTOR', c:'Actor vial responsable de operar un vehículo con prudencia y respeto por las normas de tránsito.', cat:'PESV'},
   {w:'TELEFONO',  c:'Dispositivo cuyo uso al volante es una de las principales causas de siniestros viales en Colombia.', cat:'PESV'},
-  {w:'PARPADEAR', c:'Acción natural del ojo que disminuye frente a las pantallas y genera fatiga visual.',              cat:'Salud Visual'},
+  {w:'PARPADEAR', c:'Acción natural del ojo que disminuye la fatiga visual frente a las pantallas.',                    cat:'Salud Visual'},
   {w:'PAUSAS',    c:'Espacio breve durante la jornada laboral para estirarse, descansar la vista y recuperar energía.', cat:'Salud Ocupacional'}
 ];
 const HANG_MAX_ERRORS = 6;     // 6 errores = pierde la ronda
@@ -1212,12 +1241,12 @@ function startQuiz(){
     <div class="mission-intro gold" style="margin-bottom:18px">
       <div class="m-num">Juego I</div>
       <h2>¿QUIÉN QUIERE GANAR EL BONO?</h2>
-      <p>25 preguntas en 3 niveles. Fácil 10 pts · Intermedio 20 pts · Experto 30 pts. <strong>Cuentas con tiempo limitado por pregunta</strong> — si se acaba, esa pregunta no suma.</p>
-      <p style="margin-top:8px;font-size:13px;color:rgba(255,255,255,.75)"><strong style="color:var(--gold)">3 comodines disponibles:</strong> 50/50 (elimina 2 incorrectas) · Pista (responde correcto automáticamente) · Cambio (salta a la siguiente pregunta).</p>
+      <p>15 preguntas en 3 niveles. Fácil 10 pts · Intermedio 20 pts · Experto 30 pts. <strong>Cuentas con tiempo limitado por pregunta</strong> — si se acaba, esa pregunta no suma.</p>
+      <p style="margin-top:8px;font-size:13px;color:rgba(255,255,255,.75)"><strong style="color:var(--gold)">3 comodines disponibles:</strong> 50/50 (elimina 2 incorrectas) · Pista (responde correcto automáticamente) · Cambio (reemplaza la pregunta por otra del mismo nivel).</p>
       <div class="m-rules">
-        <span class="pill gold">450 pts máx</span>
+        <span class="pill gold">300 pts máx</span>
         <span class="pill">Sin reintentos</span>
-        <span class="pill gray">15 min sugeridos</span>
+        <span class="pill gray">10 min sugeridos</span>
       </div>
       <button class="btn-primary" id="quizGoBtn">Empezar Quiz
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
@@ -1329,20 +1358,46 @@ function useSwap(){
   if(quizTimerId){ clearInterval(quizTimerId); quizTimerId = null; }
   G.quiz.lifelines.swap = false;
   G.quiz.swapsUsed++;
-  // marcar el step actual como saltado (gris) y avanzar sin sumar
-  const q = QUIZ[G.quiz.idx];
-  const step = [...document.querySelectorAll('.ladder-step')].find(s=> parseInt(s.dataset.step,10)===q.n);
-  if(step){ step.style.opacity = '.4'; step.style.fontStyle='italic'; }
+
+  const current = QUIZ[G.quiz.idx];
+  // Buscar una pregunta de reserva del MISMO nivel que aún no haya sido usada
+  // (que no esté ya en QUIZ)
+  const usedTexts = new Set(QUIZ.map(q => q.q));
+  const candidates = QUIZ_RESERVE.filter(r => r.lvl === current.lvl && !usedTexts.has(r.q));
+
   popScore('CAMBIO','');
-  // avanzar a la siguiente pregunta
-  if(G.quiz.idx + 1 < QUIZ.length){
-    document.querySelector('#mpBar1 .fill').style.width = ((G.quiz.idx+1)/QUIZ.length*100)+'%';
-    G.quiz.answered++;
-    renderQuestion(G.quiz.idx + 1);
-  } else {
-    G.quiz.answered++;
-    endQuiz();
+
+  if(candidates.length === 0){
+    // No hay reserva del mismo nivel: degradar a "skip" (avanzar sin sumar)
+    const step = [...document.querySelectorAll('.ladder-step')].find(s=> parseInt(s.dataset.step,10)===current.n);
+    if(step){ step.style.opacity = '.4'; step.style.fontStyle='italic'; }
+    if(G.quiz.idx + 1 < QUIZ.length){
+      document.querySelector('#mpBar1 .fill').style.width = ((G.quiz.idx+1)/QUIZ.length*100)+'%';
+      G.quiz.answered++;
+      renderQuestion(G.quiz.idx + 1);
+    } else {
+      G.quiz.answered++;
+      endQuiz();
+    }
+    return;
   }
+
+  // Elegir aleatoria, conservar n y pts originales
+  const pick = candidates[Math.floor(Math.random() * candidates.length)];
+  const replaced = {
+    n:    current.n,
+    lvl:  current.lvl,
+    pts:  current.pts,
+    t:    pick.t || current.t,
+    q:    pick.q,
+    o:    pick.o,
+    a:    pick.a,
+    fb:   pick.fb
+  };
+  QUIZ[G.quiz.idx] = replaced;
+
+  // Re-render la misma posición con la nueva pregunta
+  renderQuestion(G.quiz.idx);
 }
 
 function renderQuestion(i){
@@ -1502,7 +1557,7 @@ function startMaze(){
     <div class="mission-intro teal" style="margin-bottom:18px">
       <div class="m-num">Juego II</div>
       <h2>LABERINTO CONTRARRELOJ</h2>
-      <p>Llegas a la <strong>salida</strong> (esquina inferior derecha) desde la <strong>entrada</strong> (esquina superior izquierda) en el menor tiempo posible. <strong>${MAZE_TIME_LIMIT} segundos</strong> en total. Mientras más rápido termines, más puntos ganas.</p>
+      <p>Llegas a la <strong>salida</strong> (esquina inferior derecha) desde la <strong>entrada</strong> (esquina superior izquierda) en el menor tiempo posible. <strong>3 minutos en total</strong>. Mientras más rápido termines, más puntos ganas.</p>
       <div class="m-rules">
         <span class="pill teal">200 pts máx</span>
         <span class="pill">Flechas / WASD / D-pad</span>
